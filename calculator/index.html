@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style type="text/css">
+        html {
+            font-size: 100%;
+        }
+        
+        body {
+            font-family: roboto, 'helvetica neue', sans-serif;
+            font-weight: bold;
+            background: #eee;
+        }
+        
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 0.2em;
+            max-width: 500px;
+        }
+        
+        .calculator__button {
+            border: 2px solid #555;
+            border-radius: 0.2em;
+            background: #fff;
+            font-size: 1.5rem;
+            min-width: 50px;
+            line-height: 50px;
+            padding: 0;
+            transition: border-color 0.2 ease;
+            margin-bottom: 5px;
+        }
+        
+        .calculator__button:hover {
+            cursor: pointer;
+            border-color: #000;
+        }
+        
+        .calculator__display {
+            background: #ddd;
+            background-image: linear-gradient(#eee, #ddd);
+            padding: 0.5em;
+            border: 0;
+            text-align: right;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .calculator__keyboard {
+            display: flex;
+            border: 1px solid #c30;
+        }
+        
+        .calculator__numbers {
+            border: 2px solid #c30;
+            width: 40%;
+            flex-direction: column-reverse;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .calculator__update {
+            border: 2px solid #c30;
+        }
+        
+        .calculator__operations {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            border: 2px solid #c30;
+        }
+        
+        .calculator__operations .calculator__button {
+            background: #ddd;
+        }
+        
+        .calculator__button[name="calc"] {
+            background: #555;
+            color: #fff;
+        }
+        
+        .calculator__button[name="clear"] {
+            background: orange;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="calculator">
+        <input class="calculator__display" id="result">
+        <div class="calculator__keyboard">
+            <div class="calculator__numbers">
+                <input class="calculator__button" type="button" id="1" value="1">
+                <input class="calculator__button" type="button" id="2" value="2">
+                <input class="calculator__button" type="button" id="3" value="3">
+                <input class="calculator__button" type="button" id="4" value="4">
+                <input class="calculator__button" type="button" id="5" value="5">
+                <input class="calculator__button" type="button" id="6" value="6">
+                <input class="calculator__button" type="button" id="7" value="7">
+                <input class="calculator__button" type="button" id="8" value="8">
+                <input class="calculator__button" type="button" id="9" value="9">
+                <input class="calculator__button" type="button" id="0" value="0"> </div>
+            <div class="calculator__operations">
+                <input class="calculator__button" type="button" id="clear" name="clear" value="C">
+                <input class="calculator__button" type="button" id="plus" value="+">
+                <input class="calculator__button" type="button" id="minus" value="-">
+                <input class="calculator__button" type="button" id="mult" value="*">
+                <input class="calculator__button" type="button" id="div" value="/"> </div>
+            <div class="calculator__update">
+                <input class="calculator__button" type="button" id="calc" name="calc" value="="> </div>
+        </div>
+        </div>
+    </form>
+    <script>
+        var result = document.getElementById('result');
+        //add 0-9 character
+        for (var i = 0; i < 10; i++) {
+            document.getElementById(i).addEventListener('click', function () {
+                result.value += this.value;
+            }, false);
+        }
+        //add plus character
+        document.getElementById('plus').addEventListener('click', function () {
+            result.value += this.value;
+        }, false);
+        //add minus character
+        document.getElementById('minus').addEventListener('click', function () {
+            result.value += this.value;
+        }, false);
+        //add times character
+        document.getElementById('mult').addEventListener('click', function () {
+            result.value += this.value;
+        }, false);
+        //add divide character
+        document.getElementById('div').addEventListener('click', function () {
+            result.value += this.value;
+        }, false);
+        //add calc function
+        document.getElementById('calc').addEventListener('click', function () {
+            var evalo = eval(result.value)
+            result.value = evalo;
+        }, false);
+        //add clear function
+        document.getElementById('clear').addEventListener('click', function () {
+            result.value = "";
+        }, false);
+    </script>
+</body>
+
+</html>
