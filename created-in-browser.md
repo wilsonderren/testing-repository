@@ -12,4 +12,4 @@ I am now editing this file and will commit it back to the repository.
 
 Here is some content! This is what we are looking at! That is amazing!
 
-Here is another paragraph.
+Here is another paragraph. and more.
